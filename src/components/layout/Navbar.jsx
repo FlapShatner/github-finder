@@ -33,7 +33,7 @@ Navbar.defaultProps = {
 }
 
 Navbar.propTypes = {
-  title: 'PropTypes.string',
+  title: PropTypes.string,
 }
 
 export default Navbar
