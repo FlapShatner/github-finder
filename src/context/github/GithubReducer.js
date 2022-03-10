@@ -1,26 +1,17 @@
 const githubReducer = (state, action) => {
   switch (action.type) {
-    case 'GET_COUNT':
-      return {
-        ...state,
-        count: action.payload,
-      }
     case 'GET_USERS':
       return {
         ...state,
-        users: action.payload,
+        users: action.payload.items,
+        count: action.payload.count,
         loading: false,
       }
-    case 'GET_USER':
+    case 'GET_USER_AND_REPOS':
       return {
         ...state,
-        user: action.payload,
-        loading: false,
-      }
-    case 'GET_REPOS':
-      return {
-        ...state,
-        repos: action.payload,
+        user: action.payload.user,
+        repos: action.payload.repos,
         loading: false,
       }
     case 'SET_LOADING':
@@ -32,6 +23,7 @@ const githubReducer = (state, action) => {
       return {
         ...state,
         users: [],
+        count: 0,
       }
     default:
       return state
